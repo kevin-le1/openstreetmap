@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="map.png" width="350" title="valorant">
+</p>
+
 yarn add react react-dom leaflet
 <br>
 yarn add react-leaflet
@@ -12,3 +16,7 @@ Testing for now!
 This will be the api utilized in Search.tsx to search for specific locations!
 <br>
 https://nominatim.org/release-docs/develop/api/Overview/
+<br>
+cd openstreetmap
+<br>
+yarn dev (to run!)

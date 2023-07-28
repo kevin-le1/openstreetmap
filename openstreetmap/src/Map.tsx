@@ -6,6 +6,7 @@ import L from "leaflet";
 import { useEffect } from "react";
 
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function CenterView(props: { position: any; }){
   const {position} = props
   const map = useMap()
@@ -13,9 +14,9 @@ function CenterView(props: { position: any; }){
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(()=>{
     if(position){
-      map.setView(
+      map.setView( // sets view to current chosen position
         L.latLng(position?.lat, position?.lon),
-        map.getZoom(),
+        map.getZoom(), // animates zoom
         {
           animate:true
         }
@@ -31,25 +32,30 @@ function CenterView(props: { position: any; }){
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function Map(props: { position: any; }) {
-  const{position} = props
+  const{position} = props // takes in object position as prop parameter
   // 35.861660, 104.195396 previous testing
   // const position = [35.861660, 104.195396]
   const location = [position?.lat, position?.lon]
-  const placeHolder = [getRandomInt(100), getRandomInt(100)]
+  const placeHolder = [getRandomInt(100), getRandomInt(100)] // initialize position randomly
   
   function getRandomInt(max: number) {
     return Math.floor(Math.random() * max);
   }
   
     return(
+
+    // containerizes the map NEEDS PROPER style for functionality (not in the document)
+    // {position && ()}if there is a current position set both the marker and the popup to the proper lat/lng coordinates
+    // CenterView: calls centerview to update map view/animation
     <>
     <div className='map-container'>
     <div className="map-box">
-        <MapContainer center={placeHolder} zoom={13} scrollWheelZoom={false} style={{width: '100%', height:'100%'}}>
+        <MapContainer center={placeHolder} zoom={13} scrollWheelZoom={false} style={{width: '100%', height:'100%'} } > 
         <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=ZZyAQlM36jevo6tFrGct"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' 
+          url="https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=ZZyAQlM36jevo6tFrGct" // chosen map theme based on maptiler! needs x,y,z to work
         />
+        
         { position && (
         <Marker position={location}>
           <Popup>
@@ -57,7 +63,7 @@ export default function Map(props: { position: any; }) {
           </Popup>
         </Marker>
         )}
-        <CenterView position={position}></CenterView>
+        <CenterView position={position}></CenterView> 
         </MapContainer>
         
     </div>
