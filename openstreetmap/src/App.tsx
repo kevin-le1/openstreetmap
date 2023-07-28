@@ -1,14 +1,15 @@
 
+import { useState } from "react";
 import Map from "./Map"
-import './index.css'
+import Search from "./Search"
 
 function App() {
-  
-
+  const [position, setPosition] = useState()
+  console.log(position)
   return (
     <>
-      <Map></Map>
-      <div className="text-container"></div>
+      <Map position = {position}></Map>
+      <Search position={position} setPosition={setPosition}></Search>
     </>
   );
 }
