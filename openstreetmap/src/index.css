@@ -17,21 +17,21 @@ code {
 }
 
 .map-box {
-  width: 800px; /* Set the width of the box */
-  height: 600px; /* Set the height of the box */
-  border: 2px solid #ccc; /* Add a border around the box */
-  border-radius: 8px; /* Optional: Add border radius for rounded corners */
-  overflow: hidden; /* Optional: Hide any overflowing content */
+  width: 800px;
+  height: 600px; 
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden; 
 }
 .map-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Set the height of the container to the full viewport height */
+  height: 100vh;
 }
 
 .text-container {
   position: absolute;
-  top: 92.5%; /* Vertically center the .text-container relative to its parent */
-  left: 50%; /* Horizontally center the .text-container relative to its parent */
+  top: 92.5%;
+  left: 50%;
 }
