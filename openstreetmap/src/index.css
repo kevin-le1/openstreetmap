@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.map-box {
+  width: 800px; /* Set the width of the box */
+  height: 600px; /* Set the height of the box */
+  border: 2px solid #ccc; /* Add a border around the box */
+  border-radius: 8px; /* Optional: Add border radius for rounded corners */
+  overflow: hidden; /* Optional: Hide any overflowing content */
+}
+.map-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Set the height of the container to the full viewport height */
+}
+
+.text-container {
+  position: absolute;
+  top: 92.5%; /* Vertically center the .text-container relative to its parent */
+  left: 50%; /* Horizontally center the .text-container relative to its parent */
+}
