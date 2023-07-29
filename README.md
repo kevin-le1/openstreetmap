@@ -17,7 +17,6 @@ Links/Documentations used in creating this project:
 Below is a link to the documentation for openstreetmap!
 <br>
 https://react-leaflet.js.org/docs/start-introduction/ 
-Testing for now!
 <br>
 This will be the api utilized in Search.tsx to search for specific locations!
 <br>
