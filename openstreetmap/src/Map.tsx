@@ -36,10 +36,10 @@ export default function Map(props: { position: any; }) {
   // 35.861660, 104.195396 previous testing
   // const position = [35.861660, 104.195396]
   const location = [position?.lat, position?.lon]
-  const placeHolder = [getRandomInt(100), getRandomInt(100)] // initialize position randomly
+  const placeHolder = [getRandomInt(50), getRandomInt(50)] // initialize position randomly
   
   function getRandomInt(max: number) {
-    return Math.floor(Math.random() * max);
+    return Math.floor(Math.random() * max)+5;
   }
   
     return(
@@ -49,15 +49,18 @@ export default function Map(props: { position: any; }) {
     // CenterView: calls centerview to update map view/animation
     <>
     <div className='map-container'>
+      
     <div className="map-box">
-        <MapContainer center={placeHolder} zoom={13} scrollWheelZoom={false} style={{width: '100%', height:'100%'} } > 
+      
+        <MapContainer center={(placeHolder) ? placeHolder : [0,0]} zoom={13} scrollWheelZoom={false} style={{width: '100%', height:'100%'} } > 
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' 
           url="https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=ZZyAQlM36jevo6tFrGct" // chosen map theme based on maptiler! needs x,y,z to work
         />
         
         { position && (
-        <Marker position={location}>
+          
+        <Marker position={(location) ? location :[0,0]}>
           <Popup>
           Latitude : {location[0]}, Longitude : {location[1]}
           </Popup>

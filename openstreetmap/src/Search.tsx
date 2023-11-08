@@ -45,15 +45,20 @@ export default function Search(props: { position: any; setPosition: any; }) { //
     <div className='dropdown'>
     <button className = 'button2'>Locations</button>
     <div className="dropdown-content">
+    
     {listLocations.map((item) => {
             return (
               <div key={item?.place_id}>
                 <button className='button3' onClick={()=>{
-                setPosition(item)
+                if (item) {
+                    setPosition(item);
+                  }
                 }}> {item?.display_name} </button>
               </div>
             );
+        
     })}
+
     </div>
     </div>
     </div>
